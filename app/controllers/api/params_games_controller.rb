@@ -28,4 +28,20 @@ class Api::ParamsGamesController < ApplicationController
     render 'name_view.json.jbuilder'
   end 
 
+
+  def segment_number 
+    @input_number = params[:number].to_i
+    @results = ''
+
+    if @input_number > 7 
+      @results = "Too high"
+    elsif @input_number < 7 
+      @results = "Too low"
+    else 
+      @results = "Correct!" 
+    end 
+
+    render 'segment_number.json.jbuilder'
+  end 
+
 end
