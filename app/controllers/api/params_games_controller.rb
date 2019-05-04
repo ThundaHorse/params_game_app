@@ -44,4 +44,19 @@ class Api::ParamsGamesController < ApplicationController
     render 'segment_number.json.jbuilder'
   end 
 
+  def form_guess_action 
+    @guess = params[:guess].to_i
+    @results = ''
+
+    if @guess > 35 
+      @results = "Too high"
+    elsif @guess < 35 
+      @results = "Too low"
+    else 
+      @results = "Correct!" 
+    end 
+
+    render 'form_guess.json.jbuilder'
+  end 
+
 end
